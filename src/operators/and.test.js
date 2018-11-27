@@ -1,5 +1,5 @@
 import expect from 'expect';
-import and from './and';
+const and = require('./index')['AND'];
 
 const minus = n => () => -n(),
       zero  = () => 0,
@@ -21,7 +21,6 @@ test('Mixing negative numbers', async () => {
   expect(and(minus(two),       one )()).toBe( 1);
   expect(and(      two , minus(one))()).toBe(-1);
 });
-
 
 test('Matching abs', async () => {
   expect(and(minus(two), two)()).toBe(-2);
