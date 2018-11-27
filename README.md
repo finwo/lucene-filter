@@ -1,8 +1,10 @@
-# rpc-duplex
+# lucene-filter
 
-[![NPM](https://nodei.co/npm/rpc-duplex.png)](https://nodei.co/npm/rpc-duplex/)
+> Data filter for lucene queries
 
-> Streamed RPC library for both Node.JS and the browser
+[![NPM](https://nodei.co/npm/lucene-filter.png)](https://nodei.co/npm/lucene-filter/)
+
+<!-- # rpc-duplex
 
 ## Important notes
 
@@ -81,3 +83,4 @@ like [esmify][esmify] to ensure it works.
 [browserify]: https://npmjs.com/package/browserify
 [esmify]: https://npmjs.com/package/esmify
 [msgpack-rpc]: https://github.com/msgpack-rpc/msgpack-rpc
+-->
