@@ -4,83 +4,66 @@
 
 [![NPM](https://nodei.co/npm/lucene-filter.png)](https://nodei.co/npm/lucene-filter/)
 
-<!-- # rpc-duplex
+Easily rate, order or filter objects by lucene queries.
 
-## Important notes
+---
 
-This implementation **DOES NOT** follow the [msgpack-rpc][msgpack-rpc] specification. It intends to provide a stable
-stand-alone solution for remote-procedure-calling over websockets in both Node.JS and the browser.
-
-The protocol is **NOT** versioned (yet), updates may break your application until it is. No major version will be
-released until the protocol is versioned & updates should not break applications.
-
-## Install
+## Installation
 
 ```bash
-npm install --save rpc-duplex
+npm install --save lucene-filter
 ```
 
 ## Usage
 
+For a better overview of what's possible, take a look at [lucene-query-parser][lucene-query-parser].
+
 ### Node.JS
 
-```js
-const rpc = require('rpc-duplex');
-
-// Creating a provider
-const provider = rpc({}, {
-  capitalize( str ) {
-    return str.toUpperCase();
-  },
-  throwError( arg ) {
-    throw new Error(arg);
-  }
-});
-
-// Creating a consumer
-const consumer = rpc();
-
-// Connect consumer & provider
-// Normally this goes through a network of sorts
-provider.pipe(consumer).pipe(provider);
-
-// Use provided functions
-const remote = rpc.remote(consumer);
-
-// Go async so you can copy-paste this code
-(async () => {
-  
-  // Wait for functions to appear
-  while(remote.capitalize) await new Promise(r=>setTimeout(r,100));
-  
-  // Call a remote function
-  let result = await remote.capitalize('foobar');
-  console.log(result); // FOOBAR
-  
-  // Errors are re-thrown
-  try {
-    await remote.throwError('hello world');    
-  } catch(e) {
-    console.log(e.message); // hello world
-  }
-  
-})();
+```javascript
+const lucene = require('lucene-filter');
 ```
 
 ### Browser
 
-Browser usage is possible through the use of [browserify][browserify].
+```html
+// If requirejs is detected, registers as an anonymous module
+// Else, it'll attach to window.lucene
+<script src="https://unpkg.com/lucene-filter/dist/lucene-filter.min.js"></script>
+```
 
-This package makes use of ES6 features. If you want to use this module in older browsers you'll need to use a plugin
-like [esmify][esmify] to ensure it works.
+### Example
 
-## TODO
+```js
+const lucene = require('lucene-filter');
+let   result;
 
-- version the protocol
-- document the resulting protocol (like a spec)
-- automatic reconnect?
+const data = [
+  { name: 'C-3PO'           , description: 'Protocol droid.'                , race: 'Droid' },
+  { name: 'R2-D2'           , description: 'Astromech droid built on Naboo.', race: 'Droid' },
+  { name: 'Anakin Skywalker', description: 'Fallen Jedi, the chosen one.'   , race: 'Human' },
+  { name: 'Obi-Wan Kenobi'  , description: 'Jedi Master.'                   , race: 'Human' },
+  { name: 'Moon Moon'       , description: 'Mentally challenged wolf.'      , race: 'Wolf'  },
+];
 
-[browserify]: https://npmjs.com/package/browserify
-[esmify]: https://npmjs.com/package/esmify
-[msgpack-rpc]: https://github.com/msgpack-rpc/msgpack-rpc
--->
+// Prints an array with both R2-D2 and C-3PO
+console.log(data.filter(lucene('droid')));
+
+// Prints an array with only R2-D2
+console.log(data.filter(lucene('astromech')));
+
+// Prints an array with both jedi
+console.log(data.filter(lucene('jedi')));
+
+// Prints an array with only the outcast
+console.log(data.filter(lucene('wolf')));
+```
+
+## Why
+
+I wanted something simple to use & not build a completely new query language without standards or documentation. This
+module uses either [lucene][lucene] or [lucene-query-parser][lucene-query-parser] to parse the given query into
+something easy-to-process & turns it into a simple-to-use function.
+
+[lucene]: https://www.npmjs.com/package/lucene
+[lucene-query-parser]: https://www.npmjs.com/package/lucene-query-parser
