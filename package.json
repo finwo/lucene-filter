@@ -2,8 +2,9 @@
   "name": "lucene-filter",
   "version": "0.0.2",
   "description": "Data filter for lucene queries",
-  "main": "jest.config.js",
+  "main": "src/index.js",
   "scripts": {
+    "prepublishOnly": "bash scripts/prepublish.sh",
     "test": "NODE_ENV=babel jest --detectOpenHandles"
   },
   "repository": {
@@ -16,17 +17,18 @@
     "url": "https://gitlab.com/finwo/lucene-filter/issues"
   },
   "homepage": "https://gitlab.com/finwo/lucene-filter#readme",
-  "dependencies": {
-    "lucene": "^2.0.2"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "jest": "^23.6.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
+    "browserify": "^16.2.3",
+    "esmify": "^2.0.0",
     "expect": "^23.6.0",
-    "jest-isa": "^0.0.4"
+    "jest": "^23.6.0",
+    "jest-isa": "^0.0.4",
+    "uglify-es": "^3.3.9"
   },
   "keywords": [
     "lucene",
@@ -36,5 +38,10 @@
     "rating",
     "score",
     "scoring"
-  ]
+  ],
+  "optionalDependencies": {
+    "lucene": "^2.0.2",
+    "lucene-query-parser": "^1.2.0",
+    "lucene-queryparser": "^3.0.0"
+  }
 }
