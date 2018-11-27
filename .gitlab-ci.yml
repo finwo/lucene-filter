@@ -24,6 +24,8 @@ publish to npmjs.com:
   only:
     - master
   script:
+    - apk update
+    - apk add bash
     - scripts/prepublish.sh
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
     - if [ $(npm view $(node -p "require('./package.json').name") version) != $(node -p "require('./package.json').version") ]; then npm publish ; fi
