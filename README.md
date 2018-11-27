@@ -34,20 +34,23 @@ const lucene = require('lucene-filter');
 
 ### Example
 
+`lucene-filter` transforms a lucene query into a function which returns whether an object matches the query, using the
+'boost' set by the query. Returning the data when matching is also possible using `.passthrough`.
+
 ```js
 const lucene = require('lucene-filter');
 let   result;
 
 const data = [
-  { name: 'C-3PO'           , description: 'Protocol droid.'                , race: 'Droid' },
-  { name: 'R2-D2'           , description: 'Astromech droid built on Naboo.', race: 'Droid' },
-  { name: 'Anakin Skywalker', description: 'Fallen Jedi, the chosen one.'   , race: 'Human' },
-  { name: 'Obi-Wan Kenobi'  , description: 'Jedi Master.'                   , race: 'Human' },
-  { name: 'Moon Moon'       , description: 'Mentally challenged wolf.'      , race: 'Wolf'  },
+  { name: 'C-3PO'           , description: 'Protocol droid.'                , species: 'Droid' },
+  { name: 'R2-D2'           , description: 'Astromech droid built on Naboo.', species: 'Droid' },
+  { name: 'Anakin Skywalker', description: 'Fallen Jedi, the chosen one.'   , species: 'Human' },
+  { name: 'Obi-Wan Kenobi'  , description: 'Jedi Master.'                   , species: 'Human' },
+  { name: 'Moon Moon'       , description: 'Mentally challenged wolf.'      , species: 'Wolf'  },
 ];
 
 // Prints an array with both R2-D2 and C-3PO
-console.log(data.filter(lucene('droid')));
+console.log(data.filter(lucene('species: droid')));
 
 // Prints an array with only R2-D2
 console.log(data.filter(lucene('astromech')));
@@ -56,7 +59,9 @@ console.log(data.filter(lucene('astromech')));
 console.log(data.filter(lucene('jedi')));
 
 // Prints an array with only the outcast
-console.log(data.filter(lucene('wolf')));
+console.log(data.filter(lucene('name: "moon moon"')));
+
+
 ```
 
 ## Why

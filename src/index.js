@@ -45,8 +45,17 @@ const lucene = module.exports = function compiler(query) {
   return () => 0;
 };
 
+// Return the data when matching
+lucene.passthrough = function(query) {
+  let match = lucene(query);
+  return function(data) {
+    if(match(data)) return data;
+    return undefined;
+  };
+};
+
 // Add filters & operators
-lucene.filters   = require('./filters')({lucene});
+lucene.filters   = require('./filters');
 lucene.operators = require('./operators');
 
 // Browser exports
