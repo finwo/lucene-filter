@@ -25,7 +25,7 @@ done
 echo -e "\nMinifying"
 for INDEX in "${!OUTS[@]}"; do
   echo " - dist/${MINS[$INDEX]}"
-  { echo "// Build by" $(whoami) "@" $(date) ; cat "dist/${OUTS[$INDEX]}" | ${UGLIFY} ; } > "dist/${MINS[$INDEX]}"
+  { echo "// Build by" $(whoami) "@" $(date) ; cat "dist/${OUTS[$INDEX]}" | ${UGLIFY} --compress --mangle ; } > "dist/${MINS[$INDEX]}"
 done
 
 
