@@ -1,5 +1,5 @@
 import expect from 'expect';
-import or from './or';
+const or = require('./index')['OR'];
 
 const minus = n => () => -n(),
       zero  = () => 0,
@@ -21,7 +21,6 @@ test('Mixing negative numbers', async () => {
   expect(or(minus(two),       one )()).toBe(-2);
   expect(or(      two , minus(one))()).toBe( 2);
 });
-
 
 test('Matching abs', async () => {
   expect(or(minus(two), two)()).toBe(2);
