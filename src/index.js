@@ -1,4 +1,9 @@
-const parser = require('lucene');
+const hasModule = require('./has-module'),
+      parser    = (function() {
+        if (hasModule('lucene')) return require('lucene');
+        if (hasModule('lucene-query-parser')) return require('lucene-query-parser');
+        throw new Error("Neither 'lucene' nor 'lucene-query-parser' are installed");
+      })();
 
 const lucene = module.exports = function compiler(query) {
 
