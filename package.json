@@ -32,11 +32,9 @@
   "keywords": [
     "lucene",
     "filter",
-    "data",
     "query",
-    "rating",
-    "score",
-    "scoring"
+    "search",
+    "engine"
   ],
   "optionalDependencies": {
     "lucene": "^2.0.2",
