@@ -1,0 +1,40 @@
+{
+  "name": "lucene-filter",
+  "version": "0.0.1",
+  "description": "Data filter for lucene queries",
+  "main": "jest.config.js",
+  "scripts": {
+    "test": "NODE_ENV=babel jest --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/finwo/lucene-filter.git"
+  },
+  "author": "Robin Bron <robin@finwo.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/finwo/lucene-filter/issues"
+  },
+  "homepage": "https://gitlab.com/finwo/lucene-filter#readme",
+  "dependencies": {
+    "lucene": "^2.0.2"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "expect": "^23.6.0",
+    "jest-isa": "^0.0.4"
+  },
+  "keywords": [
+    "lucene",
+    "filter",
+    "data",
+    "query",
+    "rating",
+    "score",
+    "scoring"
+  ]
+}
