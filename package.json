@@ -4,7 +4,6 @@
   "description": "Data filter for lucene queries",
   "main": "src/index.js",
   "scripts": {
-    "prepublishOnly": "bash scripts/prepublish.sh",
     "test": "NODE_ENV=babel jest --detectOpenHandles"
   },
   "repository": {
