@@ -6,7 +6,7 @@
 PATH="${APPROOT}/node_modules/.bin:${PATH}"
 
 BROWSERIFY="browserify -p esmify"
-UGLIFY="uglifyjs"
+UGLIFY="${APPROOT}/node_modules/uglify-es/bin/uglifyjs"
 
 # Compile some assets
 FILES=()
