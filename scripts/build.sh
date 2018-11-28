@@ -15,7 +15,7 @@ OUTS=()
 MINS=()
 
 FILES+=("index.js")
-OPTS+=("-r lucene")
+OPTS+=("--require lucene --external lucene-query-parser --external lucene-queryparser")
 OUTS+=("lucene-filter.js")
 MINS+=("lucene-filter.min.js")
 
