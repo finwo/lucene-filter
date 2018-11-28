@@ -46,6 +46,7 @@ const lucene = module.exports = function compiler(query) {
 };
 
 // Return the data when matching
+// TODO: lucene() = { f() passthrough: f() }
 lucene.passthrough = function(query) {
   let match = lucene(query);
   return function(data) {
