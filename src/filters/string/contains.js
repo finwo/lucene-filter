@@ -5,7 +5,7 @@ module.exports = {
     if (!query) return false;
     if ('object' !== typeof query) return false;
     if ('string' !== typeof query.field) return false;
-    return 'string' !== typeof query.term;
+    return 'string' === typeof query.term;
   },
   compile: function (query) {
     return function (data) {
