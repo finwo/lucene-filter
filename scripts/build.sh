@@ -10,16 +10,19 @@ UGLIFY="${APPROOT}/node_modules/uglify-es/bin/uglifyjs"
 
 # Compile some assets
 FILES=()
-FILES+=("index.js")
+OPTS=()
 OUTS=()
-OUTS+=("lucene-filter.js")
 MINS=()
+
+FILES+=("index.js")
+OPTS+=("-r lucene")
+OUTS+=("lucene-filter.js")
 MINS+=("lucene-filter.min.js")
 
 echo -e "\nBuilding"
 for INDEX in "${!FILES[@]}"; do
   echo " - dist/${OUTS[$INDEX]}"
-  ${BROWSERIFY} -e "${APPROOT}/src/${FILES[$INDEX]}" -o "${APPROOT}/dist/${OUTS[$INDEX]}"
+  ${BROWSERIFY} -e "${APPROOT}/src/${FILES[$INDEX]}" ${OPTS[$INDEX]} -o "${APPROOT}/dist/${OUTS[$INDEX]}"
 done
 
 echo -e "\nMinifying"
