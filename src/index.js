@@ -20,7 +20,7 @@ const lucene = module.exports = function compiler(query) {
 
   // Compile combined
   if (query.operator) {
-    return operators[query.operator](
+    return lucene.operators[query.operator](
       lucene(query.left),
       lucene(query.right),
     );
