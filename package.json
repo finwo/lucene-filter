@@ -35,10 +35,5 @@
     "query",
     "search",
     "engine"
-  ],
-  "optionalDependencies": {
-    "lucene": "^2.0.2",
-    "lucene-query-parser": "^1.2.0",
-    "lucene-queryparser": "^3.0.0"
-  }
+  ]
 }

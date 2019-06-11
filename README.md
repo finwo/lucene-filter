@@ -21,7 +21,11 @@ For a better overview of what's possible, take a look at [lucene-query-parser][l
 ### Node.JS
 
 ```javascript
-const lucene = require('lucene-filter');
+
+// Either of these is supported
+const lucene = require('lucene-filter')(require('lucene'));
+const lucene = require('lucene-filter')(require('lucene-queryparser'));
+const lucene = require('lucene-filter')(require('lucene-query-parser'));
 ```
 
 ### Browser
@@ -38,7 +42,7 @@ const lucene = require('lucene-filter');
 'boost' set by the query. Returning the data when matching is also possible using `.passthrough`.
 
 ```js
-const lucene = require('lucene-filter');
+const lucene = require('lucene-filter')(require('lucene'));
 let   result;
 
 const data = [
