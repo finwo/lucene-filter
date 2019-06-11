@@ -20,3 +20,6 @@ console.log(data.filter(lucene('jedi')));
 
 // Prints an array with only the outcast
 console.log(data.filter(lucene('name: "moon moon"')));
+
+// Prints Obi-Wan
+console.log(data.filter(lucene('species: human AND master')));
