@@ -1,4 +1,4 @@
-const lucene = require('./src/index');
+const lucene = require('./src/index')(require('lucene'));
 let   result;
 
 const data = [

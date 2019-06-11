@@ -13,14 +13,14 @@ const lucene = module.exports = function factory( parser ) {
 
   // Returns Function(Object):Number
   function compile(query) {
-    if ('string' !== typeof query) return ()=>0;
     if (!query) return ()=>0;
 
-    // Actually compile what was given
-    try {
-      query = parser.parse(query);
-    } catch(e) {
-      return ()=>0;
+    if ('string' === typeof query) {
+      try {
+        query = parser.parse(query);
+      } catch(e) {
+        return ()=>0;
+      }
     }
 
     // Compile multi-query
@@ -35,6 +35,7 @@ const lucene = module.exports = function factory( parser ) {
     if (query.left) {
       return compile(query.left);
     }
+
 
     // Ensure default boost
     query.boost = query.boost || 1;
