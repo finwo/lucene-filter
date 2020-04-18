@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/finwo/lucene-filter.git"
+    "url": "git+https://github.com/finwo/lucene-filter.git"
   },
   "author": "Robin Bron <robin@finwo.nl>",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/finwo/lucene-filter/issues"
+    "url": "https://github.com/finwo/lucene-filter/issues"
   },
-  "homepage": "https://gitlab.com/finwo/lucene-filter#readme",
+  "homepage": "https://github.com/finwo/lucene-filter#readme",
   "dependencies": {},
   "devDependencies": {
     "babel-jest": "^25.1.0",
