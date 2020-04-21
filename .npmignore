@@ -4,3 +4,5 @@
 /.gtm/
 !/dist/
 .zedstate
+*.test.js
+/scripts/
