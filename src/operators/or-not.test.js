@@ -1,27 +1,32 @@
-// import expect from 'expect';
-// const orNot = require('./index')['OR NOT'];
+import tape      from 'tape';
+import operators from './index';
 
-// const minus = n => () => -n(),
-//       zero  = () => 0,
-//       one   = () => 1,
-//       two   = () => 2,
-//       three = () => 3,
-//       four  = () => 4,
-//       five  = () => 5;
+const orNot = operators['OR NOT'];
 
-// test('Verifying positive numbers', async () => {
-//   expect(orNot(zero , one  )()).toBe(-1);
-//   expect(orNot(one  , two  )()).toBe(-2);
-//   expect(orNot(two  , three)()).toBe(-3);
-//   expect(orNot(three, four )()).toBe(-4);
-//   expect(orNot(four , five )()).toBe(-5);
-// });
+const minus = n => () => -n(),
+      zero  = () => 0,
+      one   = () => 1,
+      two   = () => 2,
+      three = () => 3,
+      four  = () => 4,
+      five  = () => 5;
 
-// test('Mixing negative numbers', async () => {
-//   expect(orNot(minus(two),       one )()).toBe(-2);
-//   expect(orNot(      two , minus(one))()).toBe( 2);
-// });
+tape('Verifying positive numbers', async t => {
+  t.plan(5);
+  t.equal(orNot(zero , one  )(), -1, '0 |! 1 == -1');
+  t.equal(orNot(one  , two  )(), -2, '1 |! 2 == -2');
+  t.equal(orNot(two  , three)(), -3, '2 |! 3 == -3');
+  t.equal(orNot(three, four )(), -4, '3 |! 4 == -4');
+  t.equal(orNot(four , five )(), -5, '4 |! 5 == -5');
+});
 
-// test('Matching abs', async () => {
-//   expect(orNot(minus(two), two)()).toBe(-2);
-// });
+tape('Mixing negative numbers', async t => {
+  t.plan(2);
+  t.equal(orNot(minus(two),       one )(), -2, '-2 |! -1 = -2');
+  t.equal(orNot(      two , minus(one))(),  2, ' 2 |! -1 =  2');
+});
+
+tape('Matching abs', async t => {
+  t.plan(1);
+  t.equal(orNot(minus(two), two)(), -2, '-2 |! 2 == -2');
+});
