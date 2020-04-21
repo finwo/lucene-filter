@@ -10,10 +10,12 @@ tape('Ensure basics', async t => {
   t.equal(typeof field, 'function', 'Field is an exported function');
 });
 
-// tape('Function passthrough', async t => {
-//   expect(field('foo',{foo:'bar'},pass)).toBe('bar');
-// });
+tape('Function passthrough', async t => {
+  t.plan(1);
+  t.equal(field('foo',{foo:'bar'},pass), 'bar', 'Fetch field by name works');
+});
 
-// tape('Pass to explicit', async t => {
-//   expect(field('<implicit>',{foo:'bar'},pass)).toBe('bar');
-// });
+tape('Pass to explicit', async t => {
+  t.plan(1);
+  t.equal(field('<implicit>',{foo:'bar'},pass), 'bar', 'Implicit fetch works');
+});

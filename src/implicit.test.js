@@ -1,16 +1,18 @@
-// import expect from 'expect';
-// const implicit = require('./implicit');
+import tape from 'tape';
+import implicit from './implicit';
 
-// test('Ensure basics', async () => {
-//   expect(typeof implicit).toBe('function');
-// });
+tape('Ensure basics', async t => {
+  t.plan(1);
+  t.equal(typeof implicit, 'function', 'Implicit exports a function');
+});
 
-// test('Verify loop', async () => {
-//   let out = [];
-//   implicit({foo:'bar',pizza:'calzone'}, arg => {
-//     out.push(arg);
-//   });
+tape('Verify loop', async t => {
+  let out = [];
+  implicit({foo:'bar',pizza:'calzone'}, arg => {
+    out.push(arg);
+  });
 
-//   expect(out[0]).toBe('bar');
-//   expect(out[1]).toBe('calzone');
-// });
+  t.plan(2);
+  t.equal(out[0], 'bar'    , 'First output is "bar"');
+  t.equal(out[1], 'calzone', 'Second output is "calzone"');
+});

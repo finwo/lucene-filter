@@ -5,7 +5,6 @@
 [ -z ${APPROOT+x} ] && export APPROOT=$(dirname $SCRIPTS)
 PATH="${APPROOT}/node_modules/.bin:${PATH}"
 
-# BROWSERIFY="browserify -p esmify"
 BROWSERIFY="browserify"
 UGLIFY="${APPROOT}/node_modules/uglify-es/bin/uglifyjs"
 
