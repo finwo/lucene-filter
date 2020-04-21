@@ -2,6 +2,7 @@
 /node_modules/
 /coverage/
 /.gtm/
+/.github/
 !/dist/
 .zedstate
 *.test.js
