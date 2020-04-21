@@ -4,7 +4,8 @@
   "description": "Data filter for lucene queries",
   "main": "src/index.js",
   "scripts": {
-    "test": "NODE_ENV=babel jest --detectOpenHandles"
+    "build": "scripts/build.sh",
+    "test": "scripts/test.sh"
   },
   "repository": {
     "type": "git",
@@ -18,15 +19,9 @@
   "homepage": "https://github.com/finwo/lucene-filter#readme",
   "dependencies": {},
   "devDependencies": {
-    "babel-jest": "^25.1.0",
-    "babel-plugin-add-module-exports": "^1.0.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "browserify": "^16.2.3",
-    "esmify": "^2.0.0",
-    "expect": "^25.1.0",
-    "jest": "^25.1.0",
-    "jest-isa": "^0.0.4",
+    "browserify": "^16.5.1",
+    "esm": "^3.2.25",
+    "tape": "^4.13.2",
     "uglify-es": "^3.3.9"
   },
   "keywords": [
