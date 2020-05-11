@@ -22,7 +22,7 @@
   "devDependencies": {
     "browserify": "^16.5.1",
     "esm": "^3.2.25",
-    "tape": "^4.13.2",
+    "tape": "^5.0.0",
     "uglify-es": "^3.3.9"
   },
   "keywords": [
