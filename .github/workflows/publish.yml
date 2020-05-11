@@ -15,7 +15,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm build
+      - run: npm build --if-present
+      - run: npm test
       - run: if [ $(npm view $(node -p "require('./package.json').name") version) != $(node -p "require('./package.json').version") ]; then npm publish ; fi
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
