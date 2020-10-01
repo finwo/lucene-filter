@@ -4,7 +4,7 @@ module.exports = {
   detect : function (query) {
     if (!query) return false;
     if ('object' !== typeof query) return false;
-    return !!query.regexpr;
+    return !!query.regexpr || !!query.regex;
   },
   compile: function (query) {
     const regex = new RegExp(query.term, 'i');
