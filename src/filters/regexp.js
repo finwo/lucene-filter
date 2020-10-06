@@ -7,10 +7,10 @@ module.exports = {
     return !!query.regexpr || !!query.regex;
   },
   compile: function (query) {
-    const regex = new RegExp(query.term, 'i');
+    const regex = new RegExp(query.term);
     return function (data) {
       return field(query.field, data, function (value) {
-        return regex.test(value.toLowerCase());
+        return regex.test(value);
       }) ? query.boost : 0;
     };
   },
