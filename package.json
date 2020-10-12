@@ -6,7 +6,7 @@
   "scripts": {
     "build": "scripts/build.sh",
     "test": "scripts/test.sh",
-    "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{print $2}' | sed 's/[\",]//g' | tr -d '[[:space:]]') && npm deprecate \"lucene-filter@<${PACKAGE_VERSION}\" \"Rolling release, please update to ${PACKAGE_VERSION}\""
+    "postpublish": "PVERSION=$(node -p \"require('./package.json').version) PNAME=$(node -p \"require('./package.json').name\") npm deprecate \"${PNAME}@<${PVERSION}\" \"Rolling release, please update to ${PACKAGE_VERSION}\""
   },
   "repository": {
     "type": "git",
