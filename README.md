@@ -2,8 +2,6 @@
 
 > Data filter for lucene queries
 
-[![NPM](https://nodei.co/npm/lucene-filter.png)](https://nodei.co/npm/lucene-filter/)
-
 Easily rate, order or filter objects by lucene queries.
 
 ---
@@ -33,7 +31,8 @@ const lucene = require('lucene-filter')(require('lucene-query-parser'));
 ```html
 // If requirejs is detected, registers as an anonymous module
 // Else, it'll attach to window.lucene
-<script src="https://unpkg.com/lucene-filter/dist/lucene-filter.min.js"></script>
+<script src="https://unpkg.com/lucene-query-parser"></script>
+<script src="https://unpkg.com/lucene-filter"></script>
 ```
 
 ### Example
@@ -44,6 +43,9 @@ const lucene = require('lucene-filter')(require('lucene-query-parser'));
 ```js
 const lucene = require('lucene-filter')(require('lucene'));
 let   result;
+
+// In the browser:
+// const lucene = window.lucene(window.lucenequeryparser);
 
 const data = [
   { name: 'C-3PO'           , description: 'Protocol droid.'                , species: 'Droid' },

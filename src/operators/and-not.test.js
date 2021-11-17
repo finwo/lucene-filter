@@ -1,5 +1,5 @@
-import tape      from 'tape';
-import operators from './index';
+const tape      = require('tape');
+const operators = require('./index');
 
 const andNot = operators['AND NOT'];
 

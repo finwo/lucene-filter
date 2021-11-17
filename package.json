@@ -3,9 +3,11 @@
   "version": "0.2.4",
   "description": "Data filter for lucene queries",
   "main": "src/index.js",
+  "browser": "dist/index.js",
   "scripts": {
-    "build": "scripts/build.sh",
-    "test": "scripts/test.sh",
+    "test": "tape $(aaargh config.test.json)",
+    "build": "esbuild $(aaargh config.build.json)",
+    "prepublishOnly": "npm run build && npm test",
     "postpublish": "PACKAGE_VERSION=$(node -p \"require('./package.json').version\") PACKAGE_NAME=$(node -p \"require('./package.json').name\") && npm deprecate \"${PACKAGE_NAME}@<${PACKAGE_VERSION}\" \"Rolling release, please update to ${PACKAGE_VERSION}\""
   },
   "repository": {
@@ -17,13 +19,20 @@
   "bugs": {
     "url": "https://github.com/finwo/lucene-filter/issues"
   },
+  "files": [
+    "dist/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "funding": {
+    "url": "https://github.com/sponsors/finwo"
+  },
   "homepage": "https://github.com/finwo/lucene-filter#readme",
-  "dependencies": {},
   "devDependencies": {
-    "browserify": "^17.0.0",
-    "esm": "^3.2.25",
-    "tape": "^5.0.0",
-    "uglify-es": "^3.3.9"
+    "aaargh": "^1.0.3",
+    "esbuild": "^0.13.14",
+    "tape": "^5.0.0"
   },
   "keywords": [
     "lucene",

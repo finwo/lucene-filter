@@ -1,5 +1,5 @@
-import tape from 'tape';
-import implicit from './implicit';
+const tape     = require('tape');
+const implicit = require('./implicit');
 
 tape('Ensure basics', async t => {
   t.plan(1);
