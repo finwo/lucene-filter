@@ -1,0 +1,15 @@
+{
+   "$": {
+     "join": {
+       "long": "="
+     }
+   },
+   "outdir": "dist/",
+   "target": "es2017",
+   "platform": "browser",
+   "sourcemap": true,
+   "bundle": true,
+   "_": [
+      "src/index.js"
+   ]
+}

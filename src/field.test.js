@@ -1,5 +1,5 @@
-import tape from 'tape';
-import field from './field';
+const tape  = require('tape');
+const field = require('./field');
 
 function pass( arg ) {
   return arg;
