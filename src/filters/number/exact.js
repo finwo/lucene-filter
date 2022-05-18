@@ -16,6 +16,6 @@ module.exports = {
         let max = parseFloat(query.term) + query.similarity;
         return (min <= value) && (value <= max);
       }) ? query.boost : 0;
-    }
+    };
   },
 };
