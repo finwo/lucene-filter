@@ -1,6 +1,6 @@
 {
   "name": "lucene-filter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Data filter for lucene queries",
   "main": "src/index.js",
   "browser": "dist/index.js",
@@ -31,8 +31,8 @@
   "homepage": "https://github.com/finwo/lucene-filter#readme",
   "devDependencies": {
     "aaargh": "^1.0.3",
-    "esbuild": "^0.13.14",
-    "tape": "^5.0.0"
+    "esbuild": "^0.14.39",
+    "tape": "^5.5.3"
   },
   "keywords": [
     "lucene",
