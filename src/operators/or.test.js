@@ -4,12 +4,12 @@ const operators = require('./index');
 const or = operators['OR'];
 
 const minus = n => () => -n(),
-      zero  = () => 0,
-      one   = () => 1,
-      two   = () => 2,
-      three = () => 3,
-      four  = () => 4,
-      five  = () => 5;
+  zero  = () => 0,
+  one   = () => 1,
+  two   = () => 2,
+  three = () => 3,
+  four  = () => 4,
+  five  = () => 5;
 
 tape('Verifying positive numbers', async t => {
   t.plan(5);
