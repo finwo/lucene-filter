@@ -13,6 +13,6 @@ module.exports = {
       return field(query.field, data, function (value) {
         console.log('range value', query, value);
       }) ? query.boost : 0;
-    }
+    };
   },
 };

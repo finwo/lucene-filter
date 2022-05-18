@@ -10,13 +10,15 @@ module.exports = {
   compile: function (query) {
     return function (data) {
       return field(query.field, data, function check (value) {
-        if ('string' === typeof value)
+        if ('string' === typeof value) {
           return ~value.toLowerCase().indexOf(query.term.toLowerCase());
-        else if (Array.isArray(value)) {
+        } else if (Array.isArray(value)) {
           for(const v of value)
             if (check(v)) return true;
           return false;
-        } else return false;
+        } else {
+          return false;
+        }
       }) ? query.boost : 0;
     };
   },
