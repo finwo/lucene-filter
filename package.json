@@ -1,6 +1,6 @@
 {
   "name": "lucene-filter",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Data filter for lucene queries",
   "main": "src/index.js",
   "browser": "dist/index.js",
@@ -8,7 +8,9 @@
     "test": "tape $(aaargh config.test.json)",
     "build": "esbuild $(aaargh config.build.json)",
     "prepublishOnly": "npm run build && npm test",
-    "postpublish": "PACKAGE_VERSION=$(node -p \"require('./package.json').version\") PACKAGE_NAME=$(node -p \"require('./package.json').name\") && npm deprecate \"${PACKAGE_NAME}@<${PACKAGE_VERSION}\" \"Rolling release, please update to ${PACKAGE_VERSION}\""
+    "postpublish": "PACKAGE_VERSION=$(node -p \"require('./package.json').version\") PACKAGE_NAME=$(node -p \"require('./package.json').name\") && npm deprecate \"${PACKAGE_NAME}@<${PACKAGE_VERSION}\" \"Rolling release, please update to ${PACKAGE_VERSION}\"",
+    "check": "eslint src",
+    "format": "npm run check -- --fix"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "aaargh": "^1.0.3",
     "esbuild": "^0.14.39",
+    "eslint": "^8.15.0",
     "tape": "^5.5.3"
   },
   "keywords": [

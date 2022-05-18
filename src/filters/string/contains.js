@@ -9,9 +9,16 @@ module.exports = {
   },
   compile: function (query) {
     return function (data) {
-      return field(query.field, data, function (value) {
-        if ('string' !== typeof value) return false;
-        return ~value.toLowerCase().indexOf(query.term.toLowerCase());
+      return field(query.field, data, function check (value) {
+        if ('string' === typeof value) {
+          return ~value.toLowerCase().indexOf(query.term.toLowerCase());
+        } else if (Array.isArray(value)) {
+          for(const v of value)
+            if (check(v)) return true;
+          return false;
+        } else {
+          return false;
+        }
       }) ? query.boost : 0;
     };
   },

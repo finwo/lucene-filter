@@ -61,7 +61,7 @@ const lucene = module.exports = function factory( parser ) {
   };
 
   return compile;
-}
+};
 
 // Add filters & operators
 lucene.filters   = require('./filters');
