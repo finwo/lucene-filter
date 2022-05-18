@@ -1,6 +1,6 @@
 {
   "name": "lucene-filter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Data filter for lucene queries",
   "main": "src/index.js",
   "browser": "dist/index.js",
